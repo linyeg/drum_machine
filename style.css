@@ -1,0 +1,159 @@
+/* -------------- RESET Y FUENTE BASE -------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transition: background 0.5s ease;
+}
+
+/* -------------- VARIABLES DE TEMA (DEFAULT) -------------- */
+:root {
+  --bg-color: linear-gradient(135deg, #1e1e2f, #12121c);
+  --text-color: #ffffff;
+  --key-bg: rgba(255, 255, 255, 0.1);
+  --key-border: rgba(255, 255, 255, 0.2);
+  --key-hover: rgba(0, 255, 255, 0.15);
+  --glow: #0ff;
+  --sound-color: #ffc600;
+}
+
+/* -------------- CONTENEDOR PRINCIPAL -------------- */
+.container {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+/* -------------- LOGO / TÍTULO -------------- */
+.logo {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--glow);
+  text-shadow: 0 0 10px var(--glow), 0 0 20px var(--glow);
+  animation: flicker 2.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    text-shadow: 0 0 10px var(--glow);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--glow), 0 0 30px var(--glow);
+  }
+}
+
+/* -------------- BOTÓN DE TEMA -------------- */
+#theme-toggle {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid var(--glow);
+  border-radius: 10px;
+  color: var(--glow);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: var(--glow);
+  color: #000;
+  box-shadow: 0 0 10px var(--glow), 0 0 20px var(--glow);
+}
+
+/* -------------- GRID DE PADS -------------- */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* -------------- ESTILO DE CADA PAD -------------- */
+.key {
+  background: var(--key-bg);
+  border: 1px solid var(--key-border);
+  border-radius: 15px;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  user-select: none;
+}
+
+.key:hover {
+  transform: scale(1.03);
+}
+
+.key:active,
+.key.playing {
+  background: var(--key-hover);
+  border-color: var(--glow);
+  box-shadow: 0 0 20px var(--glow), inset 0 0 10px var(--glow);
+  transform: scale(1.05);
+}
+
+/* -------------- TEXTO EN EL PAD -------------- */
+.key kbd {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--glow);
+  text-shadow: 0 0 5px var(--glow);
+}
+
+.key .sound {
+  font-size: 0.9rem;
+  color: var(--sound-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.4rem;
+}
+
+/* -------------- RESPONSIVE PARA MÓVILES -------------- */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .keys {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .key {
+    padding: 1rem;
+  }
+
+  .key kbd {
+    font-size: 1.5rem;
+  }
+
+  .key .sound {
+    font-size: 0.75rem;
+  }
+
+  #theme-toggle {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
