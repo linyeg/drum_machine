@@ -7,9 +7,9 @@ A modern, responsive, and touch-friendly web drum machine with keyboard and mous
 
 ## Demo
 
-![Dark theme Screenshot](theme_dark.png)  
-![Light theme Screenshot](theme_white.png)
-![Pink theme Screenshot](theme_pink.png)
+![Dark theme Screenshot](Theme_dark.png)  
+![Light theme Screenshot](Theme_white.png)
+![Pink theme Screenshot](Theme_pink.png)
 
 ---
 
