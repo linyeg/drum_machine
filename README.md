@@ -44,7 +44,7 @@ A modern, responsive, and touch-friendly web drum machine with keyboard and mous
 ### Prerequisites
 
 - Modern web browser (Chrome, Firefox, Edge, Safari)
-- Internet connection (to fetch weather data)
+- Internet connection
 
 ### Setup
 
